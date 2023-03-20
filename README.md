@@ -5,7 +5,7 @@ Coming soon..
 ## Support function
 
 * [KeyBy](#KeyBy)
-* PluckUint64
+* [PluckUint64](#PluckUint64)
 
 ## Usage
 
