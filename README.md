@@ -4,7 +4,8 @@ Coming soon..
 
 ## Support function
 
-* KeyBy
+* [KeyBy](#KeyBy)
+* PluckUint64
 
 ## Usage
 
@@ -23,4 +24,22 @@ people := []*Person{
 result := KeyBy(people, "Name").(map[string]*Person)
 
 result["Alice"].Age // 25
+```
+
+### PluckUint64
+
+```
+type testStruct struct {
+	ID   uint64
+	Name string
+}
+
+tests := []*testStruct{
+	{ID: 1, Name: "Alice"},
+	{ID: 2, Name: "Bob"},
+	{ID: 3, Name: "Charlie"},
+}
+
+result := PluckUint64(tests, "ID")
+// result: []uint64{1, 2, 3}
 ```
