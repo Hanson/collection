@@ -1,6 +1,8 @@
 package collection
 
 import (
+	"fmt"
+	"github.com/elliotchance/pie/v2"
 	"reflect"
 	"testing"
 )
@@ -51,4 +53,24 @@ func TestPluckUint64(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestPluckAndDiff(t *testing.T) {
+	type person struct {
+		ID   uint64
+		Name string
+	}
+
+	people := []person{
+		{ID: 1, Name: "John"},
+		{ID: 2, Name: "Doe"},
+		{ID: 3, Name: "Jane"},
+		{ID: 4, Name: "Doe"},
+	}
+
+	fmt.Println(PluckUint64(people, "ID"))
+	fmt.Println(PluckUint64(people, "ID").Diff([]uint64{3, 4, 5}))
+
+	add, del := pie.OfNumeric(PluckUint64(people, "ID")).Diff([]uint64{3, 4, 5})
+	fmt.Printf("%+v, %+v", add, del)
 }

@@ -1,11 +1,12 @@
 # collection
 
-Coming soon..
+Coming soon ...
 
 ## Support function
 
 * [KeyBy](#KeyBy)
 * [PluckUint64](#PluckUint64)
+* [PluckString](#PluckString)
 
 ## Usage
 
@@ -43,3 +44,11 @@ tests := []*testStruct{
 result := PluckUint64(tests, "ID")
 // result: []uint64{1, 2, 3}
 ```
+
+## Respect
+
+https://laravel.com/docs/10.x/collections
+https://github.com/elliotchance/pie (Most of the code is copied from here.)
+
+## License
+MIT
