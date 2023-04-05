@@ -1,6 +1,7 @@
 package collection
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -23,5 +24,35 @@ func TestKeyBy(t *testing.T) {
 	}
 	if result["Charlie"].Age != 35 {
 		t.Errorf("Expected Charlie to be 35 years old, but got %d", result["Charlie"].Age)
+	}
+}
+
+func TestKeyBySlice(t *testing.T) {
+	type Person struct {
+		Name string
+		Id   int
+	}
+	people := []*Person{
+		{
+			Name: "Alice",
+			Id:   1,
+		},
+		{
+			Name: "Alice",
+			Id:   1,
+		},
+		{
+			Name: "Bill",
+			Id:   3,
+		},
+	}
+	m := KeyBySlice(people, "Id").(map[int][]*Person)
+	fmt.Println(m[1][0])
+
+	for i, v := range m {
+		fmt.Println(i, v)
+		//for _, vv := range v {
+		//	fmt.Println(vv)
+		//}
 	}
 }

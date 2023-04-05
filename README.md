@@ -5,6 +5,7 @@ Coming soon ...
 ## Support function
 
 * [KeyBy](#KeyBy)
+* [KeyBySlice](#KeyBySlice)
 * [PluckUint64](#PluckUint64)
 * [PluckString](#PluckString)
 
@@ -25,6 +26,33 @@ people := []*Person{
 result := KeyBy(people, "Name").(map[string]*Person)
 
 result["Alice"].Age // 25
+```
+
+### KeyBySlice
+
+```
+type Person struct {
+	Name string
+	Id   int
+}
+people := []*Person{
+	{
+		Name: "Alice",
+		Id:   1,
+	},
+	{
+		Name: "Bill",
+		Id:   1,
+	},
+	{
+		Name: "Bill",
+		Id:   3,
+	},
+}
+
+result := KeyBySlice(people, "Id").(map[int][]*Person)
+result[1] // [0xc000008120 0xc000008138]
+result[1][0] // &{Alice 1}
 ```
 
 ### PluckUint64
