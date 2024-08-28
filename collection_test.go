@@ -38,7 +38,7 @@ func TestKeyBySlice(t *testing.T) {
 			Id:   1,
 		},
 		{
-			Name: "Alice",
+			Name: "Alice345",
 			Id:   1,
 		},
 		{
@@ -50,9 +50,10 @@ func TestKeyBySlice(t *testing.T) {
 	fmt.Println(m[1][0])
 
 	for i, v := range m {
+
 		fmt.Println(i, v)
-		//for _, vv := range v {
-		//	fmt.Println(vv)
-		//}
+		for _, vv := range v {
+			fmt.Println(vv)
+		}
 	}
 }

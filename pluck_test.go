@@ -74,3 +74,19 @@ func TestPluckAndDiff(t *testing.T) {
 	add, del := pie.OfNumeric(PluckUint64(people, "ID")).Diff([]uint64{3, 4, 5})
 	fmt.Printf("%+v, %+v", add, del)
 }
+
+func TestPluckUint32(t *testing.T) {
+	type person struct {
+		ID   uint32
+		Name string
+	}
+
+	people := []person{
+		{ID: 1, Name: "John"},
+		{ID: 2, Name: "Doe"},
+		{ID: 3, Name: "Jane"},
+		{ID: 4, Name: "Doe"},
+	}
+
+	fmt.Println(PluckUint32(people, "ID"))
+}
